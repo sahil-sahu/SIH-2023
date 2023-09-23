@@ -4,10 +4,8 @@ const cors = require('cors')
 
 import { usersRouter } from './routes/users';
 import { featureRouter } from './routes/features';
-import { PrismaClient } from '@prisma/client';
 import { medicineRouter } from './routes/medicines';
 
-export const prisma = new PrismaClient();
 require('dotenv').config();
 
 export const app = express();
@@ -35,6 +33,4 @@ app.get('/health', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+export default app;
