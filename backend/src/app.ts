@@ -10,7 +10,7 @@ import { medicineRouter } from './routes/medicines';
 export const prisma = new PrismaClient();
 require('dotenv').config();
 
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
