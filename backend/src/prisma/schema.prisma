@@ -1,0 +1,31 @@
+datasource db {
+  provider = "mongodb"
+  url = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Medicine {
+  id String @id @map("_id") @db.ObjectId
+  description String?
+  img String?
+  name String
+  quantity    Int?
+  atm   ATM?     @relation(fields: [id], references: [id])
+}
+
+model ATM {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  place  String
+  medicines Medicine[]
+  location  Json
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique
+  name  String?
+  passwordHash String
+}
