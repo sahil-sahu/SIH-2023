@@ -18,4 +18,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/hashmap', async (req, res) => {
+  try {
+   const medicinesAll = await medicines.find();
+   const dataMap: { [key: string]: any } = medicinesAll.reduce((acc: { [key: string]: any }, item:any) => {
+    acc[item._id] = item;
+    return acc;
+  }, {});
+    res.json(dataMap);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching medicine' });
+  }
+});
+
 export { router as medicineRouter };
