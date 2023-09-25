@@ -9,7 +9,7 @@ interface Item {
     _id: string;
     quantity: number;
   }
-
+const url = process.env.NEXT_PUBLIC_BACKEND;
 export function Socket(){
 
     const mrsocket = useRef<any>(null);
@@ -26,7 +26,7 @@ export function Socket(){
     }
 
     useEffect(()=>{
-        const socket = io("http://13.127.78.108:3000");
+        const socket = io(url+"");
         console.log("Socket initializing")
         socket.emit('web', {type: "testing",message:'Hello, Server!'});
         socket.on('web', (message:any) => {
@@ -50,7 +50,7 @@ export function Socket(){
         });
         mrsocket.current = socket;
         const fetcher = async ()=>{
-            const response = await fetch("http://13.127.78.108:3000/medicines/hashmap");
+            const response = await fetch(url+"/medicines/hashmap");
             localStorage.setItem("medicines", JSON.stringify(await response.json()));
         }
         fetcher();

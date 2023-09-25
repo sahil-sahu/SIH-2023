@@ -31,7 +31,7 @@ client.on('error', (err) => {
   console.error('MQTT Error:', err);
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const message = req.body;
     const order = new orders({
@@ -40,9 +40,9 @@ router.post('/', (req, res) => {
     });
 
     // Save the newPayment document to the database
-    order.save()
+    const {_id} = await order.save();
     io.emit('web', {type:"initialize", payload: message});
-    res.json("Done");
+    res.json({paymentid:_id,status:"initiated"});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error in checkout' });
