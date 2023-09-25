@@ -4,7 +4,7 @@
 ## nearby atm search
 link : 
     
-    http://13.127.78.108:3000/api/nearby
+    http://3.110.200.176:3000/api/nearby
     payload : {
     "lng": 85.76327,
     "lat":20.27601
@@ -14,11 +14,11 @@ link :
 ### get all Medicines
 link: 
 
-    http://13.127.78.108:3000/medicines
+    http://3.110.200.176:3000/medicines
 
 ## To check server is working
 
-    http://13.127.78.108:3000/health 
+    http://3.110.200.176:3000/health 
 
 ## Ordering
 ### making order request 
@@ -40,7 +40,7 @@ jsonpayload :
         ]
  link: (method = post)
 
-    http://13.127.78.108:3000/order
+    http://3.110.200.176:3000/order
 
 ### payment confirmation 
 jsonpayload : 
@@ -50,5 +50,5 @@ jsonpayload :
         }
 link: (method = post)
 
-    http://13.127.78.108:3000/order/pay
+    http://3.110.200.176:3000/order/pay
 
