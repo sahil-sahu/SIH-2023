@@ -9,6 +9,7 @@ import { usersRouter } from './routes/users';
 import { featureRouter } from './routes/features';
 import { medicineRouter } from './routes/medicines';
 import { orderRouter } from './routes/order';
+import { smsRouter } from './routes/message';
 
 require('dotenv').config();
 
@@ -28,6 +29,7 @@ app.use('/api/users', usersRouter);
 app.use('/api', featureRouter);
 app.use('/medicines', medicineRouter);
 app.use('/order', orderRouter);
+app.use('/sms', smsRouter);
 
 
 io.on('connection', (socket) => {

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 const accountSid = 'ACae7ca100603b07db9a33a7b2b8a3efbb';
-const authToken = '9aed2afe7ea0874b1e3409da7effde04';
+const authToken = 'bddc4a96404dad20d6b622c4887cb898';
 
 // client.messages
 //     .create({
