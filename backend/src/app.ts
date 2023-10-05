@@ -53,7 +53,7 @@ if (!dbUrl) {
 // Now you can use dbUrl in your Mongoose connection code
 mongoose.connect(dbUrl);
 
-app.get('/health', (req, res) => {
+app.get('/health', async (req, res) => {
   res.send('Hello, World!');
 });
 
